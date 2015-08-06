@@ -2,7 +2,7 @@
 
 local ADDON_NAME	= "AddonSelector"
 local AddonSelector = {}
-local CODE_VERSION	= 1.3
+local CODE_VERSION	= 1.5
 
 
 
