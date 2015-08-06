@@ -1,0 +1,9 @@
+## Title: Addon Selector
+## APIVersion: 100011
+## SavedVariables: AddonSelectorSavedVars
+## Version: 1.0
+## Author: Circonian
+## Description: Allows you to save & reload packages of addons, whether they are turned ON/OFF.
+
+xml\AddonSelector.xml
+AddonSelector.lua

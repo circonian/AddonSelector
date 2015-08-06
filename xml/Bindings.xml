@@ -1,0 +1,11 @@
+<Bindings>
+    <Layer name="SI_KEYBINDINGS_CATEGORY_GENERAL">
+        <Category name="|cFFFF00 Test Addon|r">
+            <Action name="TESTADDON_OUTLINE_CONTROLS">
+                <Down>
+					TestAddon.OutlineControls()
+				</Down>
+            </Action>
+        </Category>
+    </Layer>
+</Bindings>

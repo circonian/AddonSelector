@@ -1,0 +1,67 @@
+
+<!-- Level then Layer then Tier (lowest to highest prescendence -->
+<GuiXml>
+	<Controls>
+	
+        <Control name="AddonSelector_AddOnRow" inherits="ZO_AddOnRow" virtual="true" mouseEnabled="true"  >
+			<OnMouseUp>
+				Addon_Toggle_Enabled(self, button, upInside)
+			</OnMouseUp>
+		</Control>
+	
+	
+        <TopLevelControl name="AddonSelector" virtual="true" clampedToScreen="true" mouseEnabled="false" movable="false" hidden="false" >
+            <Dimensions x="400" y="80"/>
+			<Anchor point="TOPLEFT" relativeTo="ZO_AddOnsDivider" relativePoint="BOTTOMLEFT" offsetX="10" offsetY="10" />
+			<Controls>
+				<Label name="$(parent)NameLabel" font="ZoFontWinH4" color="FFFFFF" wrapMode="ELLIPSIS" text="Pack Name:" verticalAlignment="CENTER" horizontalAlignment="LEFT" alpha="1" >
+					<Dimensions x="100" y="32" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
+				</Label>
+                <Backdrop name="$(parent)EditBoxBg" inherits="ZO_EditBackdrop" alpha="1"  >
+					<Dimensions x="200" y="20"/>
+					<Anchor point="TOPLEFT" relativeTo="$(parent)NameLabel" relativePoint="TOPRIGHT"  offsetX="20" offsetY="0" />
+				</Backdrop>
+				<EditBox name="$(parent)EditBox" font="ZoFontChat" horizontalAlignment="LEFT" verticalAlignment="CENTER" text="" editEnabled="true" maxInputCharacters="64" multiLine="false" newLineEnabled="false" inherits="ZO_DefaultEditForBackdrop">
+					<Dimensions x="200" y="20"/>
+					<Anchor point="TOPLEFT" relativeTo="$(parent)NameLabel" relativePoint="TOPRIGHT"  offsetX="20" offsetY="0" />
+					<OnTextChanged>
+						AddonSelector_TextChanged(self)
+					</OnTextChanged>
+				</EditBox>
+				
+				<Button name="$(parent)Save" inherits="ZO_DefaultButton" font="ZoFontWinH4" text="Save">
+					<Dimensions x="100" y="30" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)EditBox" relativePoint="TOPRIGHT" offsetX="20" offsetY="0"/>
+				</Button>
+				<Label name="$(parent)SelectLabel" font="ZoFontWinH4" color="FFFFFF" wrapMode="ELLIPSIS" text="Select Pack:" verticalAlignment="CENTER" horizontalAlignment="LEFT" alpha="1" >
+					<Dimensions x="100" y="32" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)NameLabel" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="0"/>
+				</Label>
+				<Control name="$(parent)ddl" inherits="ZO_ComboBox" mouseEnabled="true" >
+					<Dimensions x="200" y="30" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)SelectLabel" relativePoint="TOPRIGHT" offsetX="20" offsetY="0"/>
+				</Control>
+				<Button name="$(parent)Delete" inherits="ZO_DefaultButton" font="ZoFontWinH4" text="Delete">
+					<Dimensions x="100" y="30" />
+					<Anchor point="TOPLEFT" relativeTo="$(parent)ddl" relativePoint="TOPRIGHT" offsetX="20" offsetY="0"/>
+				</Button>
+				
+                <Control name="$(parent)BottomDivider" inherits="ZO_WideHorizontalDivider">
+                    <Anchor point="BOTTOM" />
+                </Control>
+			
+			
+				<Button name="$(parent)AutoReloadUI" inherits="ZO_CheckButton" >
+					<Anchor point="TOPLEFT" relativeTo="ZO_AddOnsLoadOutOfDateAddOns" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="10"/>
+
+					<Controls>
+						<Label name="$(parent)Label" font="ZoFontGame" color="INTERFACE_COLOR_TYPE_TEXT_COLORS:INTERFACE_TEXT_COLOR_NORMAL" text="Auto-Reload UI on pack selection." mouseEnabled="true" >
+							<Anchor point="LEFT" relativePoint="RIGHT" offsetX="5" />
+						</Label>
+					</Controls>
+				</Button>
+            </Controls>
+		</TopLevelControl>
+	</Controls>
+</GuiXml>
